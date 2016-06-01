@@ -1,6 +1,6 @@
 function rangeDisplay () {
 	var x = document.getElementById('myRange').value;
-		document.getElementById('rangeDisplayResult').innerHTML = 'Current range selection ' + x;
+		document.getElementById('rangeDisplayResult').innerHTML = 'Current range selection: ' + x;
 }
 
 function handleConversion (id, conversionFunction, message) {
