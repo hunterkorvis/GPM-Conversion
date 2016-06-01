@@ -2,15 +2,26 @@
 <html>
 <head>
   <title>GPM Converter</title>
+  <link rel="stylesheet" href="main.css">
   <script src="main.js"></script>
 </head>
 <body>
-  <input type="text" placeholder="Gallons (us Fluid) Per Minute (GPM)" id="GPMInput" />
-  <button onclick="handleConversion()" id="ConvertBtn">Convert</button>
-  <p id="Result"></p>
+  <main>
+    <section id="GPM">
+      <h1>Convert GPM to AFY</h1>
+      <small>Gallons (us Fluid) Per Minute (GPM)</small>
+      <input type="text" placeholder="Gallons (us Fluid) Per Minute (GPM)" />
+      <button>Convert</button>
+      <p></p>
+    </section>
 
-  <input type="text" placeholder="Acre-feet Per Year (ac ft/yr)" id="AFYInput" />
-  <button onclick="handleConversion2()" id="ConvertBtn2">Convert</button>
-  <p id="Result2"></p>
+    <section id="AFY">
+      <h1>Convert AFY to GPM</h1>
+      <small>Acre-feet Per Year (ac ft/yr)</small>
+      <input type="text" placeholder="Acre-feet Per Year (ac ft/yr)" />
+      <button>Convert</button>
+      <p></p>
+    </section>
+  </main>
 </body>
 </html>
