@@ -12,5 +12,10 @@
   <input type="text" placeholder="Acre-feet Per Year (ac ft/yr)" id="AFYInput" />
   <button onclick="handleConversion2()" id="ConvertBtn2">Convert</button>
   <p id="Result2"></p>
+
+
+  <p> Select the "Precision" or decimal places you wish to display </p>
+  <input type="range" id="myRange" min="0" max="5" onchange="rangeDisplay()" />
+  <p id="rangeDisplayResult"></p>
 </body>
 </html>
