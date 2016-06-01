@@ -12,19 +12,19 @@ function handleConversion (id, conversionFunction, message) {
   var input = element.getElementsByTagName('input')[0];
   var button = element.getElementsByTagName('button')[0];
   var result = element.getElementsByTagName('p')[0];
-
+  var range = document.getElementById('myRange')[0];
   // tell the button what function to use when clicked
   button.onclick = function () {
-    result.innerHTML = message + conversionFunction(input.value);
+    result.innerHTML = message + conversionFunction(input.value, myRange.value);
   };
 }
 
-function gpmToAfy (gpm) {
-  return (gpm * 1.61408).toFixed(5);
+function gpmToAfy (gpm, decimals) {
+  return (gpm * 1.61408).toFixed(decimals);
 }
 
-function afyToGpm (afy) {
-  return (afy * 0.61955).toFixed(5);
+function afyToGpm (afy, decimals) {
+  return (afy * 0.61955).toFixed(decimals);
 }
 
 // Get elements once DOM has loaded
