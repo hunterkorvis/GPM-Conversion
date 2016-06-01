@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hello World</title>
+  <title>GPM Converter</title>
   <script src="main.js"></script>
 </head>
 <body>
-  <button onclick="helloWorld()">Hello</button>
+  <input type="text" placeholder="Gallons (us Fluid) Per Minute (GPM)" id="GPMInput" />
+  <button onclick="handleConversion()" id="ConvertBtn">Convert</button>
+  <p id="Result"></p>
 </body>
 </html>
