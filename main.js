@@ -34,5 +34,5 @@ document.addEventListener('DOMContentLoaded', function () {
   // handleConversion takes ID, function, message
   handleConversion('GPM', gpmToAfy, 'Acre-feet Per Year (ac ft/yr): ');
   handleConversion('AFY', afyToGpm, 'Gallons (us Fluid) Per Minute (GPM): ');
-
+  rangeDisplay();
 }, false);
