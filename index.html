@@ -7,27 +7,22 @@
 </head>
 <body>
   <main>
-    <section id="GPM">
-      <h1>Convert GPM to AFY</h1>
-      <small>Gallons (us Fluid) Per Minute (GPM)</small>
-      <input type="text" placeholder="Gallons (us Fluid) Per Minute (GPM)" />
-      <button>Convert</button>
-      <p></p>
+
+    <section>
+      <h1>Gallons (us Fluid) Per Minute (GPM)</h1>
+      <input id="GPMInput" type="number" placeholder="Input GPM" />
     </section>
 
-    <section id="AFY">
-      <h1>Convert AFY to GPM</h1>
-      <small>Acre-feet Per Year (ac ft/yr)</small>
-      <input type="text" placeholder="Acre-feet Per Year (ac ft/yr)" />
-      <button>Convert</button>
-      <p></p>
+    <section>
+      <h1>Acre-feet Per Year (ac ft/yr)</h1>
+      <input id="AFYInput" type="number" placeholder="Input AFY" />
     </section>
 
- <h1>Precision</h1>
- <small>Select the "Precision" or decimal places you wish to display</small>
- <input type="range" id="myRange" min="0" max="5" onchange="rangeDisplay()" />
- <p id="rangeDisplayResult"></p>
-  
+    <section>
+      <h1>Decimal Precision <span id="PrecisionCounter"></span></h1>
+      <input id="PrecisionInput" type="range" min="0" max="6" />
+    </section>
+
   </main>
 </body>
 </html>
