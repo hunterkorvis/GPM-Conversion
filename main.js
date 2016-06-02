@@ -1,38 +1,44 @@
-function rangeDisplay () {
-	var x = document.getElementById('myRange').value;
-		document.getElementById('rangeDisplayResult').innerHTML = 'Current range selection: ' + x;
-}
-
-function handleConversion (id, conversionFunction, message) {
-
-  // getElementsByTagName returns an array
-  // we know we only have one element of this tag type so we take the first item in the array [0]
-
-  var element = document.getElementById(id);
-  var input = element.getElementsByTagName('input')[0];
-  var button = element.getElementsByTagName('button')[0];
-  var result = element.getElementsByTagName('p')[0];
-  var range = document.getElementById('myRange')[0];
-  // tell the button what function to use when clicked
-  button.onclick = function () {
-    result.innerHTML = message + conversionFunction(input.value, myRange.value);
-  };
-}
-
-function gpmToAfy (gpm, decimals) {
-  return (gpm * 1.61408).toFixed(decimals);
-}
-
-function afyToGpm (afy, decimals) {
-  return (afy * 0.61955).toFixed(decimals);
-}
-
-// Get elements once DOM has loaded
-// Sometimes the JS fires before the DOM is fully loaded, so we wait for the DOM to tell us it's ready
+// Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function () {
 
-  // handleConversion takes ID, function, message
-  handleConversion('GPM', gpmToAfy, 'Acre-feet Per Year (ac ft/yr): ');
-  handleConversion('AFY', afyToGpm, 'Gallons (us Fluid) Per Minute (GPM): ');
+  var gpm = {
+    conversion: 1.61408,
+    input: document.getElementById('GPMInput')
+  };
 
-}, false);
+  var afy = {
+    conversion: 0.61955,
+    input: document.getElementById('AFYInput')
+  };
+
+  var precision = {
+    counter: document.getElementById('PrecisionCounter'),
+    input: document.getElementById('PrecisionInput'),
+    updateCounter: function () {
+      this.counter.innerHTML = this.input.value;
+    },
+    decimals: function (val) {
+      return Number(val).toFixed(this.input.value);
+    } // Force value passed to number, then apply .toFixed
+  };
+
+  // Bind ui events
+  gpm.input.onkeyup = convert(gpm, afy);
+  afy.input.onkeyup = convert(afy, gpm);
+
+  precision.input.onchange = function () {
+    precision.updateCounter();
+    gpm.input.value = precision.decimals(gpm.input.value);
+    afy.input.value = precision.decimals(afy.input.value);
+  };
+
+  // Show initial precision value
+  precision.updateCounter();
+
+  function convert(source, target) {
+    return function () {
+      target.input.value = precision.decimals(source.input.value * source.conversion);
+    } // Note: the convert function returns a function to fire on key up
+  }
+
+});
